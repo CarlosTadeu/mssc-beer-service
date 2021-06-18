@@ -9,15 +9,15 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-05-21T10:25:36-0300",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 16.0.1 (Oracle Corporation)"
+    date = "2021-06-18T11:23:48-0300",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.8 (Oracle Corporation)"
 )
 public class BeerMapperImpl implements BeerMapper {
 
     private final DateMapper dateMapper = new DateMapper();
 
     @Override
-    public BeerDto BeerToBeerDto(Beer beer) {
+    public BeerDto beerToBeerDto(Beer beer) {
         if ( beer == null ) {
             return null;
         }
@@ -41,7 +41,7 @@ public class BeerMapperImpl implements BeerMapper {
     }
 
     @Override
-    public Beer BeerDtoToBeer(BeerDto beerDto) {
+    public Beer beerDtoToBeer(BeerDto beerDto) {
         if ( beerDto == null ) {
             return null;
         }
