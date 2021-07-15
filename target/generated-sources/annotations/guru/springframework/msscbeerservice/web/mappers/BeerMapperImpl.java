@@ -6,15 +6,19 @@ import guru.springframework.msscbeerservice.web.model.BeerDto;
 import guru.springframework.msscbeerservice.web.model.BeerDto.BeerDtoBuilder;
 import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
 import javax.annotation.processing.Generated;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-06-28T19:11:05-0300",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 16.0.1 (Oracle Corporation)"
+    date = "2021-07-15T12:19:19-0300",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.8 (Oracle Corporation)"
 )
+@Component
 public class BeerMapperImpl implements BeerMapper {
 
-    private final DateMapper dateMapper = new DateMapper();
+    @Autowired
+    private DateMapper dateMapper;
 
     @Override
     public BeerDto beerToBeerDto(Beer beer) {
@@ -36,6 +40,8 @@ public class BeerMapperImpl implements BeerMapper {
         }
         beerDto.upc( beer.getUpc() );
         beerDto.price( beer.getPrice() );
+        beerDto.minOnHand( beer.getMinOnHand() );
+        beerDto.quantityToBrew( beer.getQuantityToBrew() );
 
         return beerDto.build();
     }
@@ -60,6 +66,8 @@ public class BeerMapperImpl implements BeerMapper {
         }
         beer.upc( beerDto.getUpc() );
         beer.price( beerDto.getPrice() );
+        beer.minOnHand( beerDto.getMinOnHand() );
+        beer.quantityToBrew( beerDto.getQuantityToBrew() );
 
         return beer.build();
     }
